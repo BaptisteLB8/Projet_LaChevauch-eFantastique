@@ -14,7 +14,7 @@ public class Projet_LaChevauchee_Fantastique {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // hello
         
         System.out.print("hello");
     }
