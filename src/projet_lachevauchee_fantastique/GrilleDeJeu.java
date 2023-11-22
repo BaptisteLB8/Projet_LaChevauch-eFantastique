@@ -61,13 +61,73 @@ public class GrilleDeJeu {
         }
     }
     
-    public void initialiserMatrice(int nbTours) {
+    public void initialiserMatrice(int nbTours,int nblignes,int nbcolonnes) {
+        Random nbalea = new Random(nblignes);
+        Random nbalea2 = new Random(nbcolonnes);
+        matriceCellules[nbalea][nbalea2].activerCellule();
         
     }
     
-    public ArrayList<Integer> coupspossibles(int lignecaval, int colonnecaval,int nblignes,int nbcolonnes){
-        ArrayList<Integer> listecoupspossibles = new ArrayList<Integer>();
+    public ArrayList<ArrayList<Integer>> coupspossibles(int lignecaval, int colonnecaval,int nblignes,int nbcolonnes){
+        ArrayList<ArrayList<Integer>> listecoupspossibles = new ArrayList<ArrayList<Integer>>();
         
+        if (lignecaval-2>0 && colonnecaval+1<=nbcolonnes){
+             ArrayList<Integer> a1 = new ArrayList<Integer>(); 
+        a1.add(-2); 
+        a1.add(1); 
+        listecoupspossibles.add(a1);
+        }
+        
+        if (lignecaval-1>0 && colonnecaval+2<=nbcolonnes){
+             ArrayList<Integer> a2 = new ArrayList<Integer>(); 
+        a2.add(-1); 
+        a2.add(2); 
+        listecoupspossibles.add(a2);
+        }
+        
+        if (lignecaval+1<=nblignes && colonnecaval+2<=nbcolonnes){
+             ArrayList<Integer> a3 = new ArrayList<Integer>(); 
+        a3.add(1); 
+        a3.add(2); 
+        listecoupspossibles.add(a3);
+        }
+        
+        if (lignecaval+2<=nblignes && colonnecaval+1<=nbcolonnes){
+             ArrayList<Integer> a4 = new ArrayList<Integer>(); 
+        a4.add(2); 
+        a4.add(1); 
+        listecoupspossibles.add(a4);
+        }
+        
+        if (lignecaval+2<=nblignes && colonnecaval-1>0){
+             ArrayList<Integer> a5 = new ArrayList<Integer>(); 
+        a5.add(2); 
+        a5.add(-1); 
+        listecoupspossibles.add(a5);
+        }
+        
+        if (lignecaval+1<=nblignes && colonnecaval-2>0){
+             ArrayList<Integer> a6 = new ArrayList<Integer>(); 
+        a6.add(1); 
+        a6.add(-2); 
+        listecoupspossibles.add(a6);
+        }
+        
+        if (lignecaval-1>0 && colonnecaval-2>0){
+             ArrayList<Integer> a7 = new ArrayList<Integer>(); 
+        a7.add(-1); 
+        a7.add(-2); 
+        listecoupspossibles.add(a7);
+        }
+        
+        if (lignecaval-2>0 && colonnecaval-1>0){
+             ArrayList<Integer> a8 = new ArrayList<Integer>(); 
+        a8.add(-2); 
+        a8.add(-1); 
+        listecoupspossibles.add(a8);
+        }
+        
+        return listecoupspossibles;
     }
 
 }
