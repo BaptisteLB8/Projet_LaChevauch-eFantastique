@@ -1,5 +1,6 @@
 package projet_lachevauchee_fantastique;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /*
@@ -41,6 +42,32 @@ public class GrilleDeJeu {
                 matriceCellules[i][j].eteindreCellule();
             }
         }
+    }
+    
+    public boolean cellulesToutesEteintes(){
+        int nb_cellules_allumes=0;
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                if (matriceCellules[i][j].estEteint()==false){
+                    nb_cellules_allumes++;
+                }
+            }
+        }
+        if (nb_cellules_allumes==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public void initialiserMatrice(int nbTours) {
+        
+    }
+    
+    public ArrayList<Integer> coupspossibles(int lignecaval, int colonnecaval,int nblignes,int nbcolonnes){
+        ArrayList<Integer> listecoupspossibles = new ArrayList<Integer>();
+        
     }
 
 }
