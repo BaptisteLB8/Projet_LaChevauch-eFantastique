@@ -17,7 +17,7 @@ public class Projet_LaChevauchee_Fantastique {
         // hello
         
         GrilleDeJeu nouvelle_grille = new GrilleDeJeu (5,5);
-        nouvelle_grille.initialiserMatrice(5, 5, 5);
+        nouvelle_grille.initialiserMatrice(5);
         System.out.println(nouvelle_grille);
     }
     
