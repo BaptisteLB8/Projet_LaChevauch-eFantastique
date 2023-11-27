@@ -64,10 +64,4 @@ public class GrilleDeJeu {
     public void initialiserMatrice(int nbTours) {
         
     }
-    
-    public ArrayList<Integer> coupspossibles(int lignecaval, int colonnecaval,int nblignes,int nbcolonnes){
-        ArrayList<Integer> listecoupspossibles = new ArrayList<Integer>();
-        
-    }
-
 }
