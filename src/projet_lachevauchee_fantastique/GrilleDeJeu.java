@@ -73,14 +73,11 @@ public class GrilleDeJeu {
             ArrayList<ArrayList<Integer>> Tabcoupspossibles = coupspossibles(nb1, nb2, nblignes, nbcolonnes);
             Random nbalea3 = new Random(Tabcoupspossibles.size());
             int nb3 = nbalea3.nextInt();
-            ArrayList<Integer> coupchoisi =Tabcoupspossibles.get(nb3);
-            nb1+=coupchoisi.get(0);
-            nb2+=coupchoisi.get(2);
+            ArrayList<Integer> coupchoisi = Tabcoupspossibles.get(nb3);
+            nb1 += coupchoisi.get(0);
+            nb2 += coupchoisi.get(1);
             matriceCellules[nb1][nb2].activerCellule();
-            
-        
-            
-            
+
         }
     }
 
@@ -146,7 +143,35 @@ public class GrilleDeJeu {
         return listecoupspossibles;
     }
 
-    public void Coupsaleatoire() {
+    /**
+     * Permet d'afficher la grille avec les cellules
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        String chaine_a_retourner = "   |";
 
+        for (int i = 0; i < nbColonnes; i++) {
+            chaine_a_retourner += " " + i + " |";
+        }
+        chaine_a_retourner += "\n----";
+        for (int j = 0; j < nbColonnes; j++) {
+            chaine_a_retourner += "----";
+        }
+
+        for (int k = 0; k < nbLignes; k++) {
+            chaine_a_retourner += "\n " + k + " |";
+            for (int l = 0; l < nbColonnes; l++) {
+                chaine_a_retourner += " " + matriceCellules[k][l].toString() + " |";
+            }
+            chaine_a_retourner += "\n";
+            for (int m = 0; m < nbColonnes + 1; m++) {
+                chaine_a_retourner += "----";
+            }
+        }
+
+        return chaine_a_retourner;
     }
+
 }
