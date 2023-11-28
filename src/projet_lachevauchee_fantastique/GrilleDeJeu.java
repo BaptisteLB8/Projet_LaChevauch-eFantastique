@@ -62,24 +62,28 @@ public class GrilleDeJeu {
         }
     }
 
-    public void initialiserMatrice(int nbTours ) {
-        Random nbalea = new Random(nbLignes);
-        int nb1 = nbalea.nextInt();
-        Random nbalea2 = new Random(nbColonnes);
-        int nb2 = nbalea2.nextInt();
+   public void initialiserMatrice(int nbTours) {
+    Random nbalea = new Random();
+    int nb1 = nbalea.nextInt(nbLignes);
+    int nb2 = nbalea.nextInt(nbColonnes);
+    matriceCellules[nb1][nb2].activerCellule();
+
+    for (int i = 0; i < nbTours; i++) {
+        ArrayList<ArrayList<Integer>> Tabcoupspossibles = coupspossibles(nb1, nb2);
+        Random nbalea3 = new Random();
+        int nb3 = nbalea3.nextInt(Tabcoupspossibles.size());
+        ArrayList<Integer> coupchoisi = Tabcoupspossibles.get(nb3);
+        nb1 += coupchoisi.get(0);
+        nb2 += coupchoisi.get(1);
+
+        // Ajoutez ces vérifications pour rester dans les limites du tableau
+        nb1 = Math.max(0, Math.min(nb1, nbLignes - 1));
+        nb2 = Math.max(0, Math.min(nb2, nbColonnes - 1));
+
         matriceCellules[nb1][nb2].activerCellule();
-
-        for (int i = 0; i < nbTours; i++) {
-            ArrayList<ArrayList<Integer>> Tabcoupspossibles = coupspossibles(nb1, nb2);
-            Random nbalea3 = new Random(Tabcoupspossibles.size());
-            int nb3 = nbalea3.nextInt();
-            ArrayList<Integer> coupchoisi = Tabcoupspossibles.get(nb3);
-            nb1 += coupchoisi.get(0);
-            nb2 += coupchoisi.get(1);
-            matriceCellules[nb1][nb2].activerCellule();
-
-        }
     }
+}
+
 
     public ArrayList<ArrayList<Integer>> coupspossibles(int lignecaval, int colonnecaval) {
         ArrayList<ArrayList<Integer>> listecoupspossibles = new ArrayList<ArrayList<Integer>>();

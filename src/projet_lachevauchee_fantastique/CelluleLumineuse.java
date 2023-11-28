@@ -83,6 +83,8 @@ public class CelluleLumineuse {
         if (etat) {
             return "X";
     }
-        return null;
+        else{
+            return "O";
+        }
     }
 }
