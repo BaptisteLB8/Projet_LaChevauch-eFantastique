@@ -81,10 +81,10 @@ public class CelluleLumineuse {
     @Override
     public String toString() {
         if (etat) {
-            return "X";
+            return "O";
     }
         else{
-            return "O";
+            return "X";
         }
     }
 }

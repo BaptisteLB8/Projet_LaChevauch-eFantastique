@@ -68,7 +68,7 @@ public class GrilleDeJeu {
     int nb2 = nbalea.nextInt(nbColonnes);
     matriceCellules[nb1][nb2].activerCellule();
 
-    for (int i = 0; i < nbTours; i++) {
+    for (int i = 0; i < nbTours-1; i++) {
         ArrayList<ArrayList<Integer>> Tabcoupspossibles = coupspossibles(nb1, nb2);
         Random nbalea3 = new Random();
         int nb3 = nbalea3.nextInt(Tabcoupspossibles.size());
