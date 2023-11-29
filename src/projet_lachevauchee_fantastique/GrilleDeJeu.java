@@ -18,7 +18,6 @@ public class GrilleDeJeu {
     int nbLignes;
     int nbColonnes;
     static Random generateur_aleat = new Random();
-    
 
     /**
      * Permet de représente une grille de cellules lumineuses
@@ -62,14 +61,14 @@ public class GrilleDeJeu {
         }
     }
 
-    public  int getnbLignes(){
+    public int getnbLignes() {
         return nbLignes;
     }
-    
-    public  int getnbColonnes(){
+
+    public int getnbColonnes() {
         return nbColonnes;
     }
-    
+
     public void initialiserMatrice(int nbTours) {
         Random nbalea = new Random();
         int nb1 = nbalea.nextInt(nbLignes);
@@ -78,12 +77,12 @@ public class GrilleDeJeu {
 
         for (int i = 0; i < nbTours - 1; i++) {
             ArrayList<ArrayList<Integer>> Tabcoupspossibles = coupspossibles(nb1, nb2);
-            
+
             ArrayList<Integer> coup_a_enlever = new ArrayList<Integer>();
-            
+
             for (int j = 0; j < Tabcoupspossibles.size(); j++) {
                 ArrayList<Integer> coup = Tabcoupspossibles.get(j);
-                
+
                 int x = nb1 + coup.get(0);
                 int y = nb2 + coup.get(1);
                 if (matriceCellules[x][y].getEtat()) {
@@ -91,11 +90,11 @@ public class GrilleDeJeu {
                 }
             }
 
-           for (int k = coup_a_enlever.size() - 1; k >= 0; k--) {
-            Tabcoupspossibles.remove((int) coup_a_enlever.get(k));
-        }
-           
-           if (Tabcoupspossibles.isEmpty()) {
+            for (int k = coup_a_enlever.size() - 1; k >= 0; k--) {
+                Tabcoupspossibles.remove((int) coup_a_enlever.get(k));
+            }
+
+            if (Tabcoupspossibles.isEmpty()) {
                 // Aucun coup possible, arrêtez la boucle
                 initialiserMatrice(nbTours);
             }
@@ -180,7 +179,7 @@ public class GrilleDeJeu {
         String chaine_a_retourner = "   |";
 
         for (int i = 0; i < nbColonnes; i++) {
-            int t=i+1;
+            int t = i + 1;
             chaine_a_retourner += " " + t + " |";
         }
         chaine_a_retourner += "\n----";
@@ -189,10 +188,14 @@ public class GrilleDeJeu {
         }
 
         for (int k = 0; k < nbLignes; k++) {
-            int w =k+1;
+            int w = k + 1;
             chaine_a_retourner += "\n " + w + " |";
             for (int l = 0; l < nbColonnes; l++) {
-                chaine_a_retourner += " " + matriceCellules[k][l].toString() + " |";
+                if (coordonneesCavalier.get(0) == k && coordonneesCavalier.get(1) == l) {
+                    chaine_a_retourner += " C |"; // Afficher le cavalier à ses coordonnées
+                } else {
+                    chaine_a_retourner += " " + matriceCellules[k][l].toString() + " |";
+                }
             }
             chaine_a_retourner += "\n";
             for (int m = 0; m < nbColonnes + 1; m++) {

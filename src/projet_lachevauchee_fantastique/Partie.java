@@ -4,6 +4,7 @@
  */
 package projet_lachevauchee_fantastique;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -70,6 +71,29 @@ public class Partie {
         }
     }
 
+    public ArrayList<Integer> PositionnerCava(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choisissez une cellule allumée sur laquelle placer le cavalier.");
+        int i =scanner.nextInt();
+        int j =scanner.nextInt();
+        if(grille.matriceCellules[i][j].estEteint()){
+            System.out.println("Cette cellule n'est pas allumée.\nRéessayer.");
+            PositionnerCava();
+        }
+        else{
+            grille.matriceCellules[i][j].eteindreCellule();
+            ArrayList<Integer> Poscava = new ArrayList<Integer>();
+            Poscava.add(i);
+            Poscava.add(j);
+            return Poscava;
+        }
+        return null;
+    }
+    
+    public void Deplacment(){
+        
+    }
+    
     /**
      * initialise le lancemant de partie gere la boucle de jeu ( demande le coup
      * jouer, modifie le plateau, donne le resultat de la partie)
@@ -81,6 +105,7 @@ public class Partie {
         configurerNiveauDifficulte();
         System.out.println("Grille de départ :");
         System.out.println(grille);
+        PositionnerCava();
 
         while (!grille.cellulesToutesEteintes()) {
             String coup = obtenirCoupJoueur();
