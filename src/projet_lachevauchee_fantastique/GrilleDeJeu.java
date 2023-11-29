@@ -18,7 +18,7 @@ public class GrilleDeJeu {
     int nbLignes;
     int nbColonnes;
     static Random generateur_aleat = new Random();
-    int b = 8;
+    
 
     /**
      * Permet de représente une grille de cellules lumineuses
@@ -62,6 +62,14 @@ public class GrilleDeJeu {
         }
     }
 
+    public  int getnbLignes(){
+        return nbLignes;
+    }
+    
+    public  int getnbColonnes(){
+        return nbColonnes;
+    }
+    
     public void initialiserMatrice(int nbTours) {
         Random nbalea = new Random();
         int nb1 = nbalea.nextInt(nbLignes);
@@ -172,7 +180,8 @@ public class GrilleDeJeu {
         String chaine_a_retourner = "   |";
 
         for (int i = 0; i < nbColonnes; i++) {
-            chaine_a_retourner += " " + i + " |";
+            int t=i+1;
+            chaine_a_retourner += " " + t + " |";
         }
         chaine_a_retourner += "\n----";
         for (int j = 0; j < nbColonnes; j++) {
@@ -180,7 +189,8 @@ public class GrilleDeJeu {
         }
 
         for (int k = 0; k < nbLignes; k++) {
-            chaine_a_retourner += "\n " + k + " |";
+            int w =k+1;
+            chaine_a_retourner += "\n " + w + " |";
             for (int l = 0; l < nbColonnes; l++) {
                 chaine_a_retourner += " " + matriceCellules[k][l].toString() + " |";
             }

@@ -20,21 +20,21 @@ public class Partie {
 
     public String obtenirCoupJoueur() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez la ligne (A-G) :");
-        String ligne = scanner.nextLine().toUpperCase(); // Convertir en majuscules pour être insensible à la casse
+        System.out.println("Entrez la ligne (1-"+grille.getnbLignes()+") :");
+        int ligne =scanner.nextInt(); // Convertir en majuscules pour être insensible à la casse
 
         // Vérifier si la ligne est entre A et G
-        if (!ligne.matches("[A-G]")) {
-            System.out.println("Ligne invalide. Entrez une lettre entre A et G.");
+        if (ligne< 1 || ligne> grille.getnbLignes()) {
+            System.out.println("Ligne invalide. Entrez un nombre entre 1 et "+grille.getnbLignes()+".");
             return obtenirCoupJoueur(); // Redemander la ligne
         }
 
-        System.out.println("Entrez la colonne (1-7) :");
+        System.out.println("Entrez la colonne (1-"+grille.getnbColonnes()+") :");
         int colonne = scanner.nextInt();
 
         // Vérifier si la colonne est entre 1 et 7
-        if (colonne < 1 || colonne > 7) {
-            System.out.println("Colonne invalide. Entrez un nombre entre 1 et 7.");
+        if (colonne < 1 || colonne > grille.getnbColonnes()) {
+            System.out.println("Colonne invalide. Entrez un nombre entre 1 et "+grille.getnbColonnes()+"");
             return obtenirCoupJoueur(); // Redemander la colonne
         }
 
@@ -54,12 +54,15 @@ public class Partie {
         switch (choix) {
             case 1:
                 grille = new GrilleDeJeu(8 ,8); // Met à jour la grille actuelle avec une grille 5x5
+                grille.initialiserMatrice(8);
                 break;
             case 2:
                 grille = new GrilleDeJeu(9, 9); // Met à jour la grille actuelle avec une grille 6x6
+                grille.initialiserMatrice(9);
                 break;
             case 3:
                 grille = new GrilleDeJeu(10, 10); // Met à jour la grille actuelle avec une grille 7x7
+                grille.initialiserMatrice(10);
                 break;
             default:
                 System.out.println("Choix invalide. Sélectionnez un niveau de difficulté valide.");
@@ -75,6 +78,7 @@ public class Partie {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenue dans La Chevauchée Fantastique!");
+        configurerNiveauDifficulte();
         System.out.println("Grille de départ :");
         System.out.println(grille);
 
