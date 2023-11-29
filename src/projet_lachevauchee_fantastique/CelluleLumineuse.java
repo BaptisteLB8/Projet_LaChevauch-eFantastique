@@ -84,7 +84,7 @@ public class CelluleLumineuse {
             return "O";
     }
         else{
-            return "X";
+            return " ";
         }
     }
 }

@@ -53,13 +53,13 @@ public class Partie {
 
         switch (choix) {
             case 1:
-                grille = new GrilleDeJeu(5, 5); // Met à jour la grille actuelle avec une grille 5x5
+                grille = new GrilleDeJeu(8 ,8); // Met à jour la grille actuelle avec une grille 5x5
                 break;
             case 2:
-                grille = new GrilleDeJeu(6, 6); // Met à jour la grille actuelle avec une grille 6x6
+                grille = new GrilleDeJeu(9, 9); // Met à jour la grille actuelle avec une grille 6x6
                 break;
             case 3:
-                grille = new GrilleDeJeu(7, 7); // Met à jour la grille actuelle avec une grille 7x7
+                grille = new GrilleDeJeu(10, 10); // Met à jour la grille actuelle avec une grille 7x7
                 break;
             default:
                 System.out.println("Choix invalide. Sélectionnez un niveau de difficulté valide.");
