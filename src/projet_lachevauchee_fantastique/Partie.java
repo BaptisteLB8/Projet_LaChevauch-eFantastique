@@ -21,21 +21,21 @@ public class Partie {
 
     public String obtenirCoupJoueur() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez la ligne (1-"+grille.getnbLignes()+") :");
-        int ligne =scanner.nextInt(); // Convertir en majuscules pour être insensible à la casse
+        System.out.println("Entrez la ligne (1-" + grille.getnbLignes() + ") :");
+        int ligne = scanner.nextInt(); // Convertir en majuscules pour être insensible à la casse
 
         // Vérifier si la ligne est entre A et G
-        if (ligne< 1 || ligne> grille.getnbLignes()) {
-            System.out.println("Ligne invalide. Entrez un nombre entre 1 et "+grille.getnbLignes()+".");
+        if (ligne < 1 || ligne > grille.getnbLignes()) {
+            System.out.println("Ligne invalide. Entrez un nombre entre 1 et " + grille.getnbLignes() + ".");
             return obtenirCoupJoueur(); // Redemander la ligne
         }
 
-        System.out.println("Entrez la colonne (1-"+grille.getnbColonnes()+") :");
+        System.out.println("Entrez la colonne (1-" + grille.getnbColonnes() + ") :");
         int colonne = scanner.nextInt();
 
         // Vérifier si la colonne est entre 1 et 7
         if (colonne < 1 || colonne > grille.getnbColonnes()) {
-            System.out.println("Colonne invalide. Entrez un nombre entre 1 et "+grille.getnbColonnes()+"");
+            System.out.println("Colonne invalide. Entrez un nombre entre 1 et " + grille.getnbColonnes() + "");
             return obtenirCoupJoueur(); // Redemander la colonne
         }
 
@@ -54,7 +54,7 @@ public class Partie {
 
         switch (choix) {
             case 1:
-                grille = new GrilleDeJeu(8 ,8); // Met à jour la grille actuelle avec une grille 5x5
+                grille = new GrilleDeJeu(8, 8); // Met à jour la grille actuelle avec une grille 5x5
                 grille.initialiserMatrice(8);
                 break;
             case 2:
@@ -71,29 +71,31 @@ public class Partie {
         }
     }
 
-    public ArrayList<Integer> PositionnerCava(){
+    public ArrayList<Integer> PositionnerCava() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choisissez une cellule allumée sur laquelle placer le cavalier.");
-        int i =scanner.nextInt();
-        int j =scanner.nextInt();
-        if(grille.matriceCellules[i][j].estEteint()){
-            System.out.println("Cette cellule n'est pas allumée.\nRéessayer.");
-            PositionnerCava();
+
+        while (true) {
+            System.out.println("Choisissez une cellule allumée sur laquelle placer le cavalier.\nLigne : ");
+            int i = scanner.nextInt();
+            System.out.println("Colonne : ");
+            int j = scanner.nextInt();
+
+            if (grille.matriceCellules[i-1][j-1].estEteint()) {
+                System.out.println("Cette cellule n'est pas allumée. Réessayez.");
+            } else {
+                grille.matriceCellules[i-1][j-1].eteindreCellule();
+                ArrayList<Integer> posCava = new ArrayList<>();
+                posCava.add(i-1);
+                posCava.add(j-1);
+                return posCava;
+            }
         }
-        else{
-            grille.matriceCellules[i][j].eteindreCellule();
-            ArrayList<Integer> Poscava = new ArrayList<Integer>();
-            Poscava.add(i);
-            Poscava.add(j);
-            return Poscava;
-        }
-        return null;
     }
-    
-    public void Deplacment(){
-        
+
+    public void Deplacment() {
+
     }
-    
+
     /**
      * initialise le lancemant de partie gere la boucle de jeu ( demande le coup
      * jouer, modifie le plateau, donne le resultat de la partie)
@@ -105,7 +107,9 @@ public class Partie {
         configurerNiveauDifficulte();
         System.out.println("Grille de départ :");
         System.out.println(grille);
-        PositionnerCava();
+        grille.cavalier.deplacer(PositionnerCava());
+        
+        System.out.println(grille);
 
         while (!grille.cellulesToutesEteintes()) {
             String coup = obtenirCoupJoueur();

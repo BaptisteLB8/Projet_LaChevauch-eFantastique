@@ -18,6 +18,7 @@ public class GrilleDeJeu {
     int nbLignes;
     int nbColonnes;
     static Random generateur_aleat = new Random();
+    public Cavalier cavalier;
 
     /**
      * Permet de représente une grille de cellules lumineuses
@@ -35,6 +36,7 @@ public class GrilleDeJeu {
                 matriceCellules[i][j] = new CelluleLumineuse();
             }
         }
+         cavalier = new Cavalier(240, 240);
     }
 
     public void eteindreToutesLesCellules() {
@@ -191,7 +193,7 @@ public class GrilleDeJeu {
             int w = k + 1;
             chaine_a_retourner += "\n " + w + " |";
             for (int l = 0; l < nbColonnes; l++) {
-                if (coordonneesCavalier.get(0) == k && coordonneesCavalier.get(1) == l) {
+                if (cavalier.getCoordonnees().get(0) == k && cavalier.getCoordonnees().get(1) == l) {
                     chaine_a_retourner += " C |"; // Afficher le cavalier à ses coordonnées
                 } else {
                     chaine_a_retourner += " " + matriceCellules[k][l].toString() + " |";
