@@ -19,7 +19,7 @@ public class Partie {
         grille = new GrilleDeJeu(6, 6);
     }
 
-    public String obtenirCoupJoueur() {
+    public ArrayList<Integer> obtenirCoupJoueur() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez la ligne (1-" + grille.getnbLignes() + ") :");
         int ligne = scanner.nextInt(); // Convertir en majuscules pour être insensible à la casse
@@ -40,7 +40,10 @@ public class Partie {
         }
 
         scanner.nextLine(); //
-        return null;
+        ArrayList<Integer> coupJoueur = new ArrayList<>();
+        coupJoueur.add(ligne);
+        coupJoueur.add(colonne);
+        return coupJoueur;
     }
 
     public void configurerNiveauDifficulte() {
@@ -80,20 +83,31 @@ public class Partie {
             System.out.println("Colonne : ");
             int j = scanner.nextInt();
 
-            if (grille.matriceCellules[i-1][j-1].estEteint()) {
+            if (grille.matriceCellules[i - 1][j - 1].estEteint()) {
                 System.out.println("Cette cellule n'est pas allumée. Réessayez.");
             } else {
-                grille.matriceCellules[i-1][j-1].eteindreCellule();
+                grille.matriceCellules[i - 1][j - 1].eteindreCellule();
                 ArrayList<Integer> posCava = new ArrayList<>();
-                posCava.add(i-1);
-                posCava.add(j-1);
+                posCava.add(i - 1);
+                posCava.add(j - 1);
                 return posCava;
             }
         }
     }
 
-    public void Deplacment() {
+    public boolean EstCoupPossible(ArrayList<Integer> coupJoueur) {
+        ArrayList<ArrayList<Integer>> coupsPossibles = grille.coupspossibles(
+                grille.cavalier.getCoordonnees().get(0), // Ligne
+                grille.cavalier.getCoordonnees().get(1) // Colonne
+        );
 
+        for (ArrayList<Integer> coupPossible : coupsPossibles) {
+            if (coupJoueur.get(0).equals(coupPossible.get(0)) && coupJoueur.get(1).equals(coupPossible.get(1))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -108,11 +122,28 @@ public class Partie {
         System.out.println("Grille de départ :");
         System.out.println(grille);
         grille.cavalier.deplacer(PositionnerCava());
-        
         System.out.println(grille);
 
         while (!grille.cellulesToutesEteintes()) {
-            String coup = obtenirCoupJoueur();
+            ArrayList<Integer> coup = obtenirCoupJoueur();
+
+            if (EstCoupPossible(coup)) {
+                int ligne = coup.get(0);
+                int colonne = coup.get(1);
+
+                if (!grille.matriceCellules[ligne][colonne].getEtat()) {
+                    System.out.println("Perdu.\nLa case touchée était une cellule éteinte.");
+                } else {
+                    int lignecaval = grille.cavalier.getCoordonnees().get(0);
+                    int colonnecaval = grille.cavalier.getCoordonnees().get(1);
+                    grille.matriceCellules[lignecaval][colonnecaval].eteindre();
+                    grille.cavalier.deplacer(coup);
+                    System.out.println("Bravo ! Vous avez éteint une cellule.");
+                    System.out.println(grille);
+                }
+            } else {
+                System.out.println("Coup demandé impossible.\nVeuillez réessayer.");
+            }
         }
 
         if (grille.cellulesToutesEteintes()) {
