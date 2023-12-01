@@ -83,7 +83,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
      // création du panneau de boutons verticaux (pour les lignes)
  for (i = 0; i < nbLignes; i++) {
- JButton bouton_ligne = new JButton(""+i);
+ 
  ActionListener ecouteurClick = new ActionListener() {
     final int j = i;
  @Override

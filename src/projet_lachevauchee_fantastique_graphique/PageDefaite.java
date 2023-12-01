@@ -17,6 +17,7 @@ public class PageDefaite extends javax.swing.JFrame {
      */
     public PageDefaite() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -70,7 +70,7 @@ public class CelluleGraphique extends JButton {
         }
 
         // Dessiner un cercle au lieu d'un ovale
-        g.fillOval(0, 0, w, h);
+        g.fillRect(0, 0, w, h);
 
         // Appeler la méthode paintComponent du parent pour le rendu du bouton
         super.paintComponent(g);

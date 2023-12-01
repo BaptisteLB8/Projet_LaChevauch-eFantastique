@@ -19,6 +19,7 @@ public class PageVictoire extends javax.swing.JFrame {
      */
     public PageVictoire() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

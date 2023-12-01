@@ -15,6 +15,7 @@ public class PageAcceuil extends javax.swing.JFrame {
 
     public PageAcceuil() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

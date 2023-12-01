@@ -15,6 +15,7 @@ public class Regles extends javax.swing.JFrame {
      */
     public Regles() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -5,18 +5,21 @@
 package projet_lachevauchee_fantastique_graphique;
 
 import projet_lachevauchee_fantastique_graphique.FenetrePrincipale;
+import projet_lachevauchee_fantastique.GrilleDeJeu;
 
 /**
  *
  * @author bapti
  */
 public class Moyen extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form Moyen
      */
     public Moyen() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
