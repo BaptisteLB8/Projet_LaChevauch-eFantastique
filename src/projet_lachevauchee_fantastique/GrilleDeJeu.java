@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class GrilleDeJeu {
 
-    CelluleLumineuse[][] matriceCellules;
+    public CelluleLumineuse[][] matriceCellules;
     int nbLignes;
     int nbColonnes;
     static Random generateur_aleat = new Random();

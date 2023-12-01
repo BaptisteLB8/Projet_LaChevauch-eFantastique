@@ -15,28 +15,30 @@ import projet_lachevauchee_fantastique.CelluleLumineuse;
  * @author bapti
  */
 public class CelluleGraphique extends JButton {
- int largeur; // largeur en pixel de la cellule
- int hauteur; // hauteur en pixel de la cellule
- CelluleLumineuse celluleLumineuseAssociee;
- // constructeur (appelé depuis FenetrePrincipale)
- public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int largeur,
-int hauteur) {
- this.largeur = largeur;
- this.hauteur = hauteur;
- this.celluleLumineuseAssociee = celluleLumineuseAssociee;
- }
 
- @Override
-  protected void paintComponent(Graphics g) {
- int w = this.getWidth();
- int h = this.getHeight();
- if (celluleLumineuseAssociee.estEteint() == true) {
- g.setColor(Color.red);
- } else {
- g.setColor(Color.orange);
- }
- g.fillOval(2, 2, w - 4, h - 4);
- }
+    int largeur; // largeur en pixel de la cellule
+    int hauteur; // hauteur en pixel de la cellule
+    CelluleLumineuse celluleLumineuseAssociee;
+    // constructeur (appelé depuis FenetrePrincipale)
+
+    public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int largeur, int hauteur) {
+        this.largeur = largeur;
+        this.hauteur = hauteur;
+        this.celluleLumineuseAssociee = celluleLumineuseAssociee;
+        JButton bouton_ligne = new JButton("Yoo");
+         
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        int w = this.getWidth();
+        int h = this.getHeight();
+        if (celluleLumineuseAssociee.estEteint() == true) {
+            g.setColor(Color.red);
+        } else {
+            g.setColor(Color.orange);
+        }
+        g.fillOval(2, 2, w - 4, h - 4);
+    }
 
 }
-
