@@ -101,8 +101,9 @@ public class Partie {
                 grille.cavalier.getCoordonnees().get(1) // Colonne
         );
 
-        for (ArrayList<Integer> coupPossible : coupsPossibles) {
-            if (coupJoueur.get(0).equals(coupPossible.get(0)) && coupJoueur.get(1).equals(coupPossible.get(1))) {
+        for (int i = 0;i<coupsPossibles.size();i++) {
+            if (coupJoueur.get(0) == grille.cavalier.getCoordonnees().get(0) + coupsPossibles.get(i).get(0)+1 &&
+            coupJoueur.get(1) == grille.cavalier.getCoordonnees().get(1) + coupsPossibles.get(i).get(1)+1) {
                 return true;
             }
         }
@@ -128,16 +129,18 @@ public class Partie {
             ArrayList<Integer> coup = obtenirCoupJoueur();
 
             if (EstCoupPossible(coup)) {
-                int ligne = coup.get(0);
-                int colonne = coup.get(1);
+                int ligne = coup.get(0)-1;
+                int colonne = coup.get(1)-1;
 
                 if (!grille.matriceCellules[ligne][colonne].getEtat()) {
                     System.out.println("Perdu.\nLa case touchée était une cellule éteinte.");
                 } else {
+                    coup.set(0,ligne);
+                    coup.set(1,colonne);
+                    grille.cavalier.deplacer(coup);
                     int lignecaval = grille.cavalier.getCoordonnees().get(0);
                     int colonnecaval = grille.cavalier.getCoordonnees().get(1);
-                    grille.matriceCellules[lignecaval][colonnecaval].eteindre();
-                    grille.cavalier.deplacer(coup);
+                    grille.matriceCellules[lignecaval][colonnecaval].activerCellule();
                     System.out.println("Bravo ! Vous avez éteint une cellule.");
                     System.out.println(grille);
                 }

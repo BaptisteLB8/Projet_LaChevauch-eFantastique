@@ -16,8 +16,8 @@ public class Projet_LaChevauchee_Fantastique {
     public static void main(String[] args) {
         // hello
         
-        //Partie nouvelle_partie = new Partie();
-        //nouvelle_partie.PositionnerCava();
+        Partie nouvelle_partie = new Partie();
+        nouvelle_partie.lancerPartie();
        
     }
     
