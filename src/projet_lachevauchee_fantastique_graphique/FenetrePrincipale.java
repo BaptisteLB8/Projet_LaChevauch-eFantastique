@@ -59,9 +59,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
          for (int j=0; j < nbColonnes; j++ ) {
          CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 35,35);
          PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
+         
+         
          this.setVisible(true);
-         JButton bouton_ligne = new JButton("Yoo");
-         PanneauGrille.add(bouton_ligne);
+         
  }
          
 }
@@ -195,8 +196,6 @@ public void AfficherMessage(){
             }
         });
         getContentPane().add(Regle, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, -1, -1));
-
-        PanneauGrille.setBackground(new java.awt.Color(0, 0, 0));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 440, 450));
 
         jButton1.setText("Quitter le jeu");
