@@ -196,7 +196,9 @@ public void AfficherMessage(){
             }
         });
         getContentPane().add(Regle, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, -1, -1));
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 440, 450));
+
+        PanneauGrille.setPreferredSize(new java.awt.Dimension(360, 360));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
         jButton1.setText("Quitter le jeu");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
