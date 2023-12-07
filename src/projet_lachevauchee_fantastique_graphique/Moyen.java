@@ -87,7 +87,7 @@ public class Moyen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommencerActionPerformed
-        FenetrePrincipale f =new FenetrePrincipale(8,4,5);
+        FenetrePrincipale f =new FenetrePrincipale(4,4,5);
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CommencerActionPerformed

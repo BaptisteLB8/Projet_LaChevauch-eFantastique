@@ -31,6 +31,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         int i;
         int j;
         boolean partieterminee = false;
+        
+        
+        CA M'ENERVE'
        
       
     /**
