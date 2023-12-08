@@ -4,10 +4,20 @@
  */
 package projet_lachevauchee_fantastique_graphique;
 
+import java.util.ArrayList;
+import javax.swing.JButton;
+
 /**
  *
  * @author Utilisateur
  */
-public class Cavaliergraphique {
+public class Cavaliergraphique extends JButton {
+
+    ArrayList<Integer> coordonneescaval;
+
+}
+
+public Cavaliergraphique( ) {
+        
     
 }
