@@ -52,10 +52,13 @@ public class CelluleGraphique extends JButton {
 
                 // Redessiner le bouton pour refléter le nouvel état
                 repaint();
+                
+                
             }
         });
-        
-        
+        if(celluleLumineuseAssociee.estEteint()){
+                    setEnabled(false);
+        }
     }
 
     @Override
@@ -65,6 +68,7 @@ public class CelluleGraphique extends JButton {
 
         if (celluleLumineuseAssociee.estEteint()) {
             g.setColor(Color.red);
+            
         } else {
             g.setColor(Color.orange);
         }

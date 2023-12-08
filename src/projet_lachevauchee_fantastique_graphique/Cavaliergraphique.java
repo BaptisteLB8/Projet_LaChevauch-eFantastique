@@ -11,13 +11,13 @@ import javax.swing.JButton;
  *
  * @author Utilisateur
  */
-public class Cavaliergraphique extends JButton {
+public class Cavaliergraphique {
 
     ArrayList<Integer> coordonneescaval;
 
-}
+    public Cavaliergraphique(ArrayList<Integer> coordonneescaval) {
 
-public Cavaliergraphique( ) {
+        this.coordonneescaval = coordonneescaval;
         
-    
+    }
 }

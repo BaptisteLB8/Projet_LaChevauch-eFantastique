@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package projet_lachevauchee_fantastique;
+import projet_lachevauchee_fantastique_graphique.*;
 
 /**
  *
@@ -13,12 +14,6 @@ public class Projet_LaChevauchee_Fantastique {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // hello
-        
-        Partie nouvelle_partie = new Partie();
-        nouvelle_partie.lancerPartie();
-       
-    }
+
     
 }

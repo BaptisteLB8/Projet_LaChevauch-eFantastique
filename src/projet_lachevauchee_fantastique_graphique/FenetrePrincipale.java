@@ -137,15 +137,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
 
-    public void DesactiverBoutonRouge() {
-        for (int i = 0; i < nbLigne; i++) {
-            for (int j = 0; j < nbColonne; j++) {
-                  if (grille.matriceCellules[i][j].estEteint()){
-                      grille.matriceCellules[i][j]
-                  }
-            }
-        }
-    }
+    //public void DesactiverBoutonRouge() {
+      //  for (int i = 0; i < nbLigne; i++) {
+        //    for (int j = 0; j < nbColonne; j++) {
+          //        if (grille.matriceCellules[i][j].estEteint()){
+            //      grille.matriceCellules[i][j].enabled(false);
+              //    }
+            //}
+        //}
+    //}
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
