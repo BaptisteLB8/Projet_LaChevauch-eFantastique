@@ -10,6 +10,7 @@ package projet_lachevauchee_fantastique;
  */
 public class CelluleLumineuse {
 
+    public boolean presencecavalier = false;
     private boolean etat;
 
     /**
@@ -57,7 +58,7 @@ public class CelluleLumineuse {
     /**
      * vérifie si la cellule est actuellement éteint
      *
-     * @return 
+     * @return
      * @return: renvoie l'inverse de son état
      */
     public boolean estEteint() {
@@ -74,16 +75,15 @@ public class CelluleLumineuse {
     }
 
     /**
-     * donne comme valeur X si elle est allumé 
+     * donne comme valeur X si elle est allumé
      *
-     * @return X si elle est allumé 
+     * @return X si elle est allumé
      */
     @Override
     public String toString() {
         if (etat) {
             return "O";
-    }
-        else{
+        } else {
             return " ";
         }
     }

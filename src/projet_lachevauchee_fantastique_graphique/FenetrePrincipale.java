@@ -49,7 +49,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         //   this.revalidate();
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-
+        grille.initialiserMatrice(nbTours);
         for (int i = 0; i < nbLigne; i++) {
             for (int j = 0; j < nbColonne; j++) {
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 35, 35);
@@ -60,7 +60,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
 
         }
-        grille.initialiserMatrice(nbTours);
 
         //  getContentPane().add(PanneauBoutonsVerticaux, new
         //org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
@@ -138,15 +137,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     //public void DesactiverBoutonRouge() {
-      //  for (int i = 0; i < nbLigne; i++) {
-        //    for (int j = 0; j < nbColonne; j++) {
-          //        if (grille.matriceCellules[i][j].estEteint()){
-            //      grille.matriceCellules[i][j].enabled(false);
-              //    }
-            //}
-        //}
+    //  for (int i = 0; i < nbLigne; i++) {
+    //    for (int j = 0; j < nbColonne; j++) {
+    //        if (grille.matriceCellules[i][j].estEteint()){
+    //      grille.matriceCellules[i][j].enabled(false);
+    //    }
     //}
-
+    //}
+    //}
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
