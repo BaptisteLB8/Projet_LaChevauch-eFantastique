@@ -1,6 +1,7 @@
 package projet_lachevauchee_fantastique_graphique;
 
 import projet_lachevauchee_fantastique.*;
+import projet_lachevauchee_fantastique_graphique.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -49,8 +50,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
-        for (int i = 0; i < nbLignes; i++) {
-            for (int j = 0; j < nbColonnes; j++) {
+        for (int i = 0; i < nbLigne; i++) {
+            for (int j = 0; j < nbColonne; j++) {
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 35, 35);
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
 
@@ -134,6 +135,24 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             PageVictoire f = new PageVictoire();
             f.setVisible(true);
         }
+    }
+
+    public void DesactiverBoutonRouge() {
+        for (int i = 0; i < nbLigne; i++) {
+            for (int j = 0; j < nbColonne; j++) {
+                  if (grille.matriceCellules[i][j].estEteint()){
+                      grille.matriceCellules[i][j]
+                  }
+            }
+        }
+    }
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PageAcceuil().setVisible(true);
+            }
+        });
     }
 
     /**
