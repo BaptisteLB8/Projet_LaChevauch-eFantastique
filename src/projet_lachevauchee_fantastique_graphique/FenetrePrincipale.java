@@ -1,7 +1,6 @@
 package projet_lachevauchee_fantastique_graphique;
 
-import projet_lachevauchee_fantastique.GrilleDeJeu;
-import projet_lachevauchee_fantastique.Partie;
+import projet_lachevauchee_fantastique.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -23,155 +22,119 @@ import javax.swing.LayoutStyle;
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
 
- GrilleDeJeu grille;
-        
-        int nbTours;
-       int nbLigne ;
-        int nbColonne ; 
-        int i;
-        int j;
-        boolean partieterminee = false;
-        
-        
-        CA M'ENERVE'
-       
-      
+    GrilleDeJeu grille;
+
+    int nbTours;
+    int nbLigne;
+    int nbColonne;
+    int i;
+    int j;
+    boolean partieterminee = false;
+
     /**
      * Creates new form FenetrePrincipale
      */
-    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbTours ) {
-      initComponents();  
-      nbColonne=nbColonnes;
-      nbLigne=nbLignes;
-      this.setLocationRelativeTo(null);
-      this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-     
-        
-        this.grille = new GrilleDeJeu(nbLignes,nbColonnes);
-     //   getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,
-     //   nbColonnes*40, nbLignes*40));
-     //   this.pack();
-     //   this.revalidate();
-         
-        
-         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-         
-         
-         
-         for (int i=0; i < nbLignes; i++) {
-         for (int j=0; j < nbColonnes; j++ ) {
-         CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 35,35);
-         PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
-         
-         
-         this.setVisible(true);
-         
- }
-         
-}
-       
-  
-   //  getContentPane().add(PanneauBoutonsVerticaux, new
-    //org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
-    // this.pack();
-    // this.revalidate();
-    
-     
-  //   getContentPane().add(PanneauBoutonsHorizontaux, new
-  //  org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, nbColonnes * 40, 1 * 40));
-   //  this.pack();
-    // this.revalidate();
-        
-    
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbTours) {
+        initComponents();
+        nbColonne = nbColonnes;
+        nbLigne = nbLignes;
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-     // création du panneau de boutons verticaux (pour les lignes)
- for (i = 0; i < nbLignes; i++) {
- 
- ActionListener ecouteurClick = new ActionListener() {
-    final int j = i;
- @Override
+        this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
+        //   getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,
+        //   nbColonnes*40, nbLignes*40));
+        //   this.pack();
+        //   this.revalidate();
 
- public void actionPerformed(ActionEvent e) {
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 35, 35);
+                PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
 
+                this.setVisible(true);
 
-if(nbTours==nbTours){
-    PageDefaite d = new PageDefaite();
-    d.setVisible(true);
-    FenetrePrincipale.this.dispose();
-            
- }
+            }
 
-if(grille.cellulesToutesEteintes()==true){
-      PageVictoire f = new PageVictoire();
-      f.setVisible(true);
-     FenetrePrincipale.this.dispose();
-     
-  }
-}
+        }
+        grille.initialiserMatrice(nbTours);
 
-    
+        //  getContentPane().add(PanneauBoutonsVerticaux, new
+        //org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
+        // this.pack();
+        // this.revalidate();
+        //   getContentPane().add(PanneauBoutonsHorizontaux, new
+        //  org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, nbColonnes * 40, 1 * 40));
+        //  this.pack();
+        // this.revalidate();
+        // création du panneau de boutons verticaux (pour les lignes)
+        for (i = 0; i < nbLignes; i++) {
 
+            ActionListener ecouteurClick = new ActionListener() {
+                final int j = i;
 
-    
- 
- };
- 
+                @Override
 
+                public void actionPerformed(ActionEvent e) {
 
+                    if (nbTours == nbTours) {
+                        PageDefaite d = new PageDefaite();
+                        d.setVisible(true);
+                        FenetrePrincipale.this.dispose();
 
- }
+                    }
 
- 
-        
+                    if (grille.cellulesToutesEteintes() == true) {
+                        PageVictoire f = new PageVictoire();
+                        f.setVisible(true);
+                        FenetrePrincipale.this.dispose();
 
+                    }
+                }
 
-     // création du panneau de boutons verticaux (pour les lignes)
- for (j = 0; j < nbColonnes; j++) {
- JButton bouton_colonne = new JButton(""+j);
- ActionListener ecouteurClick = new ActionListener() {
-    final int i= j;
- @Override
- 
- public void actionPerformed(ActionEvent e) {
+            };
 
+        }
 
-if(nbTours==nbTours){
-    PageDefaite d = new PageDefaite();
-    d.setVisible(true);
-    FenetrePrincipale.this.dispose();
- }    
- 
-if(grille.cellulesToutesEteintes()==true){
-      PageVictoire f = new PageVictoire();
-      f.setVisible(true);
-      FenetrePrincipale.this.dispose();
-     
-     
-  }
+        // création du panneau de boutons verticaux (pour les lignes)
+        for (j = 0; j < nbColonnes; j++) {
+            JButton bouton_colonne = new JButton("" + j);
+            ActionListener ecouteurClick = new ActionListener() {
+                final int i = j;
 
+                @Override
 
- }
+                public void actionPerformed(ActionEvent e) {
 
- };
- 
- }
+                    if (nbTours == nbTours) {
+                        PageDefaite d = new PageDefaite();
+                        d.setVisible(true);
+                        FenetrePrincipale.this.dispose();
+                    }
 
+                    if (grille.cellulesToutesEteintes() == true) {
+                        PageVictoire f = new PageVictoire();
+                        f.setVisible(true);
+                        FenetrePrincipale.this.dispose();
 
- 
+                    }
+
+                }
+
+            };
+
+        }
+
     }
-public void initialiserPartie() {
- grille.eteindreToutesLesCellules();
- 
- 
- }
-public void AfficherMessage(){
-     if(grille.cellulesToutesEteintes()) {
-         PageVictoire f = new PageVictoire() ;
-          f.setVisible(true) ;
-     }
-}
 
+    public void AfficherMessage() {
+        if (grille.cellulesToutesEteintes()) {
+            PageVictoire f = new PageVictoire();
+            f.setVisible(true);
+        }
+    }
 
     /**
      * Méthode appelée lorsqu'un bouton "Regles" est cliqué. Affiche une fenêtre
@@ -235,5 +198,5 @@ public void AfficherMessage(){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
- 
+
 }
