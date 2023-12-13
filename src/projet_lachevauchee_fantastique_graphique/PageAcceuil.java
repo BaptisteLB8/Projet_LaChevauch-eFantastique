@@ -6,6 +6,10 @@ package projet_lachevauchee_fantastique_graphique;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -32,8 +36,10 @@ public class PageAcceuil extends javax.swing.JFrame {
         Difficile = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         regles = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Facile.setText("Facile");
         Facile.addActionListener(new java.awt.event.ActionListener() {
@@ -41,6 +47,7 @@ public class PageAcceuil extends javax.swing.JFrame {
                 FacileActionPerformed(evt);
             }
         });
+        getContentPane().add(Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 278, -1, -1));
 
         Moyen.setText("Moyen");
         Moyen.addActionListener(new java.awt.event.ActionListener() {
@@ -48,6 +55,7 @@ public class PageAcceuil extends javax.swing.JFrame {
                 MoyenActionPerformed(evt);
             }
         });
+        getContentPane().add(Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         Difficile.setText("Difficle ");
         Difficile.addActionListener(new java.awt.event.ActionListener() {
@@ -55,40 +63,19 @@ public class PageAcceuil extends javax.swing.JFrame {
                 DifficileActionPerformed(evt);
             }
         });
+        getContentPane().add(Difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         regles.setColumns(20);
+        regles.setLineWrap(true);
         regles.setRows(5);
         regles.setText("Bienvenue dans Light Off !\n\nLe but du jeu est simple : réussir à avoir un tableau entièrement jaune.\nPour ce faire, tu peux activer des lignes, des colonnes ou une diagonale. \nAttention, cela change la couleur de chacune des pièces de la ligne\nsélectionnée.\n\nTu as le choix entre 3 niveaux de difficulté, ou la taille de la grille, \nle nombre de coups et le temps changent ( le temps démarre lorsque\nvous activer votre première cellule).\n\nBonne chance !\n\nVisualiser les caractéristiques des niveaux en cliquant sur les boutons");
         jScrollPane2.setViewportView(regles);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Facile)
-                        .addGap(88, 88, 88)
-                        .addComponent(Moyen)
-                        .addGap(103, 103, 103)
-                        .addComponent(Difficile)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Facile)
-                    .addComponent(Moyen)
-                    .addComponent(Difficile))
-                .addGap(22, 22, 22))
-        );
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 300, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_lachevauchee_fantastique_graphique/Photo Page.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,50 +98,14 @@ public class PageAcceuil extends javax.swing.JFrame {
          this.dispose();
     }//GEN-LAST:event_DifficileActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
-            }
-        }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(PageAcceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(PageAcceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(PageAcceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(PageAcceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-    //</editor-fold>
-    //</editor-fold>
-    //</editor-fold>
-
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
-            new PageAcceuil().setVisible(true);
-        }
-    });
-}
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Difficile;
     private javax.swing.JButton Facile;
     private javax.swing.JButton Moyen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea regles;
     // End of variables declaration//GEN-END:variables
 }
+

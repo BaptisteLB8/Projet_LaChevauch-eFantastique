@@ -15,6 +15,10 @@ import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -57,26 +61,48 @@ public class CelluleGraphique extends JButton {
 
     }
 
-    @Override
+      @Override
     protected void paintComponent(Graphics g) {
         int w = getWidth();
         int h = getHeight();
 
         if (celluleLumineuseAssociee.estEteint() && !celluleLumineuseAssociee.presencecavalier) {
-            g.setColor(Color.red);
-            setEnabled(false);
-        } else if (celluleLumineuseAssociee.estEteint() && celluleLumineuseAssociee.presencecavalier) {
-            g.setColor(Color.blue);
-            setEnabled(false);
-        } else {
-            g.setColor(Color.orange);
-        }
-
-        // Dessiner un cercle au lieu d'un ovale
+    g.setColor(Color.red);
+    setEnabled(false);
+    // Dessiner un cercle au lieu d'un ovale
         g.fillRect(0, 0, w, h);
-
+        
         // Appeler la méthode paintComponent du parent pour le rendu du bouton
         super.paintComponent(g);
+} else if (celluleLumineuseAssociee.estEteint() && celluleLumineuseAssociee.presencecavalier) {
+    this.setText(celluleLumineuseAssociee.toString());
+        BufferedImage image = null;
+        try { 
+            image = ImageIO.read(new File(".scr//projet_lachevauchee_fantastique_graphique/Cavalier.jpeg"));
+        } catch (IOException e) {
+            System.out.println(e.getCause());
+            e.printStackTrace();
+            setEnabled(false);
+        }
+        g.fillRect(4, 4, largeur, hauteur);
+             this.setText(celluleLumineuseAssociee.toString());
+            g.drawImage(image,3,3,largeur,hauteur,null);
+// Dessiner un cercle au lieu d'un ovale
+        g.fillRect(0, 0, w, h);
+        
+        // Appeler la méthode paintComponent du parent pour le rendu du bouton
+        super.paintComponent(g);
+    
+} else {
+    g.setColor(Color.orange);
+    // Dessiner un cercle au lieu d'un ovale
+        g.fillRect(0, 0, w, h);
+        // Appeler la méthode paintComponent du parent pour le rendu du bouton
+        super.paintComponent(g);
+}
+
+
+       
     }
 
 }
