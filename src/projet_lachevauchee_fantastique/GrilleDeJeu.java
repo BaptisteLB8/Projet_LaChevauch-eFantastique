@@ -19,6 +19,7 @@ public class GrilleDeJeu {
     int nbColonnes;
     static Random generateur_aleat = new Random();
     public Cavalier cavalier;
+    public int nbcoups;
 
     /**
      * Permet de représente une grille de cellules lumineuses

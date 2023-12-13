@@ -44,9 +44,10 @@ public class CelluleGraphique extends JButton {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 // Inverser l'état de la celluleLumineuseAssociee
                 celluleLumineuseAssociee.activerCellule();
-
+                
                 // Redessiner le bouton pour refléter le nouvel état
                 celluleLumineuseAssociee.presencecavalier = true;
                 repaint();
@@ -62,15 +63,14 @@ public class CelluleGraphique extends JButton {
         int h = getHeight();
 
         if (celluleLumineuseAssociee.estEteint() && !celluleLumineuseAssociee.presencecavalier) {
-    g.setColor(Color.red);
-    setEnabled(false);
-} else if (celluleLumineuseAssociee.estEteint() && celluleLumineuseAssociee.presencecavalier) {
-    g.setColor(Color.blue);
-    setEnabled(false);
-} else {
-    g.setColor(Color.orange);
-}
-
+            g.setColor(Color.red);
+            setEnabled(false);
+        } else if (celluleLumineuseAssociee.estEteint() && celluleLumineuseAssociee.presencecavalier) {
+            g.setColor(Color.blue);
+            setEnabled(false);
+        } else {
+            g.setColor(Color.orange);
+        }
 
         // Dessiner un cercle au lieu d'un ovale
         g.fillRect(0, 0, w, h);
