@@ -31,11 +31,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int i;
     int j;
     boolean partieterminee = false;
+    private Timer timer;
+    private int secondsRemaining;
+    private JLabel timerLabel;
 
     /**
      * Creates new form FenetrePrincipale
      */
-    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbTours) {
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbTours, int seconde) {
         initComponents();
         nbColonne = nbColonnes;
         nbLigne = nbLignes;
@@ -43,10 +46,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
-        //   getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,
-        //   nbColonnes*40, nbLignes*40));
-        //   this.pack();
-        //   this.revalidate();
+  
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
         grille.initialiserMatrice(nbTours);
@@ -61,15 +61,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         }
 
-        //  getContentPane().add(PanneauBoutonsVerticaux, new
-        //org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
-        // this.pack();
-        // this.revalidate();
-        //   getContentPane().add(PanneauBoutonsHorizontaux, new
-        //  org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, nbColonnes * 40, 1 * 40));
-        //  this.pack();
-        // this.revalidate();
-        // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < nbLignes; i++) {
 
             ActionListener ecouteurClick = new ActionListener() {
@@ -78,15 +69,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 @Override
 
                 public void actionPerformed(ActionEvent e) {
-
-                    if (nbTours == nbTours) {
-                        PageDefaite d = new PageDefaite();
-                        d.setVisible(true);
-                        FenetrePrincipale.this.dispose();
-
-                    }
-
                     if (grille.cellulesToutesEteintes() == true) {
+                        timer.stop();
                         PageVictoire f = new PageVictoire();
                         f.setVisible(true);
                         FenetrePrincipale.this.dispose();
@@ -98,35 +82,31 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         }
 
-        // création du panneau de boutons verticaux (pour les lignes)
-        for (j = 0; j < nbColonnes; j++) {
-            JButton bouton_colonne = new JButton("" + j);
-            ActionListener ecouteurClick = new ActionListener() {
-                final int i = j;
+// Initialisation du compte à rebours
+        secondsRemaining = seconde;
+        timerLabel = new JLabel("Time: " + secondsRemaining);
 
-                @Override
+        ActionListener timerAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                secondsRemaining--;
+                timerLabel.setText("Time: " + secondsRemaining);
 
-                public void actionPerformed(ActionEvent e) {
-
-                    if (nbTours == nbTours) {
-                        PageDefaite d = new PageDefaite();
-                        d.setVisible(true);
-                        FenetrePrincipale.this.dispose();
-                    }
-
-                    if (grille.cellulesToutesEteintes() == true) {
-                        PageVictoire f = new PageVictoire();
-                        f.setVisible(true);
-                        FenetrePrincipale.this.dispose();
-
-                    }
-
+                // Vérifier si le temps est écoulé
+                if (secondsRemaining <= 0) {
+                    timer.stop();// arrete le timer
+                    JOptionPane.showMessageDialog(FenetrePrincipale.this, "Time's up!");// affcihe une fenetre pour dire que le temps est dépassé
+                    PageDefaite f = new PageDefaite();// crée la page défaite 
+                    f.setVisible(true);// affiche la page défaite 
+                    FenetrePrincipale.this.dispose();// suprime la fenetre principale
                 }
 
-            };
+            }
+        };
 
-        }
-
+        timer = new Timer(1000, timerAction);
+        timer.start();
+        getContentPane().add(timerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 360, 30));// Ajout du label du compte à rebours à la fenêtre
     }
 
     public void AfficherMessage() {
@@ -136,15 +116,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
 
-    //public void DesactiverBoutonRouge() {
-    //  for (int i = 0; i < nbLigne; i++) {
-    //    for (int j = 0; j < nbColonne; j++) {
-    //        if (grille.matriceCellules[i][j].estEteint()){
-    //      grille.matriceCellules[i][j].enabled(false);
-    //    }
-    //}
-    //}
-    //}
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

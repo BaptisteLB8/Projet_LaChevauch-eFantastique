@@ -68,13 +68,20 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="Recommencer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Recommencer"/>
+        <Property name="text" type="java.lang.String" value="jButton3"/>
+        <Property name="actionCommand" type="java.lang.String" value="Recommencer"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Recommencer"/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RecommencerActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="660" y="180" width="-1" height="-1"/>
+          <AbsoluteConstraints x="670" y="220" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
