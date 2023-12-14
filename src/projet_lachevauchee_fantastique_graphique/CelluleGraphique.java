@@ -67,42 +67,36 @@ public class CelluleGraphique extends JButton {
         int h = getHeight();
 
         if (celluleLumineuseAssociee.estEteint() && !celluleLumineuseAssociee.presencecavalier) {
-    g.setColor(Color.red);
+    g.setColor(Color.black);
     setEnabled(false);
-    // Dessiner un cercle au lieu d'un ovale
+      // Dessiner un cercle au lieu d'un ovale
         g.fillRect(0, 0, w, h);
-        
+
         // Appeler la méthode paintComponent du parent pour le rendu du bouton
         super.paintComponent(g);
+
 } else if (celluleLumineuseAssociee.estEteint() && celluleLumineuseAssociee.presencecavalier) {
     this.setText(celluleLumineuseAssociee.toString());
         BufferedImage image = null;
         try { 
-            image = ImageIO.read(new File(".scr//projet_lachevauchee_fantastique_graphique/Cavalier.jpeg"));
+            image = ImageIO.read(new File("./src//projet_lachevauchee_fantastique_graphique/Cavalier.jpg"));
         } catch (IOException e) {
             System.out.println(e.getCause());
-            e.printStackTrace();
-            setEnabled(false);
+            e.printStackTrace();   
         }
-        g.fillRect(4, 4, largeur, hauteur);
+        setEnabled(false);
+        g.fillRect(5, 5, largeur, hauteur);
              this.setText(celluleLumineuseAssociee.toString());
-            g.drawImage(image,3,3,largeur,hauteur,null);
-// Dessiner un cercle au lieu d'un ovale
-        g.fillRect(0, 0, w, h);
+            g.drawImage(image,5,5,largeur,hauteur,null);
         
-        // Appeler la méthode paintComponent du parent pour le rendu du bouton
-        super.paintComponent(g);
-    
-} else {
-    g.setColor(Color.orange);
+      } else {
+    g.setColor(Color.red);
     // Dessiner un cercle au lieu d'un ovale
         g.fillRect(0, 0, w, h);
+
         // Appeler la méthode paintComponent du parent pour le rendu du bouton
-        super.paintComponent(g);
-}
-
-
-       
+        super.paintComponent(g);   
+}   
     }
 
 }
