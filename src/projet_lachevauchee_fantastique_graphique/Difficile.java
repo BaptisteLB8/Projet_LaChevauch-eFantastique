@@ -84,7 +84,7 @@ public class Difficile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommencerActionPerformed
-        FenetrePrincipale f =new FenetrePrincipale(8,8,8,30);
+        FenetrePrincipale f =new FenetrePrincipale(8,8,11,30);
         f.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_CommencerActionPerformed
