@@ -28,8 +28,7 @@ public class Regles extends javax.swing.JFrame {
     private void initComponents() {
 
         Continuer = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Regles = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,29 +39,29 @@ public class Regles extends javax.swing.JFrame {
             }
         });
 
-        Regles.setColumns(20);
-        Regles.setRows(5);
-        Regles.setText("Le but du jeu est simple : réussir à avoir un tableau entièrement jaune.\nPour ce faire, tu peux activer des lignes, des colonnes ou une diagonale. \nAttention, cela change la couleur de chacune des pièces de la ligne\nsélectionnée.\n\nTu as le choix entre 3 niveaux de difficulté, ou la taille de la grille, \nle nombre de coups et le temps changent ( le temps démarre lorsque\nvous activez votre première cellule).\n\nBonne chance !");
-        jScrollPane1.setViewportView(Regles);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet_lachevauchee_fantastique_graphique/Regles.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(Continuer)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(Continuer)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(Continuer)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -111,7 +110,6 @@ public class Regles extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Continuer;
-    private javax.swing.JTextArea Regles;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

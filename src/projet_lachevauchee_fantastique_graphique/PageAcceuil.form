@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jScrollPane2" alignment="1" min="-2" pref="407" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -35,7 +35,7 @@
                       <Component id="Difficile" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,14 +43,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="245" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="231" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Facile" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Moyen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Difficile" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,7 +91,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Bienvenue dans Light Off !&#xa;&#xa;Le but du jeu est simple : r&#xe9;ussir &#xe0; avoir un tableau enti&#xe8;rement jaune.&#xa;Pour ce faire, tu peux activer des lignes, des colonnes ou une diagonale. &#xa;Attention, cela change la couleur de chacune des pi&#xe8;ces de la ligne&#xa;s&#xe9;lectionn&#xe9;e.&#xa;&#xa;Tu as le choix entre 3 niveaux de difficult&#xe9;, ou la taille de la grille, &#xa;le nombre de coups et le temps changent ( le temps d&#xe9;marre lorsque&#xa;vous activer votre premi&#xe8;re cellule).&#xa;&#xa;Bonne chance !&#xa;&#xa;Visualiser les caract&#xe9;ristiques des niveaux en cliquant sur les boutons"/>
+            <Property name="text" type="java.lang.String" value="Bienvenue dans La chevauchee fantastique !&#xa;&#xa;Le but du jeu est simple : r&#xe9;ussir &#xe0; aller sur toute les cases alluml&#xe9;es avec &#xa;ton cavalier.&#xa;Pour ce faire, tu peux te deplacver seulement avec les r&#xe8;gles du cavalier &#xa;au echec.&#xa;&#xa;Tu as le choix entre 3 niveaux de difficult&#xe9;, ou le nombre decase allum&#xe9;es&#xa;changent et le temps changent&#xa;Bonne chance !&#xa;&#xa;Visualiser les caract&#xe9;ristiques des niveaux en cliquant sur les boutons"/>
           </Properties>
         </Component>
       </SubComponents>

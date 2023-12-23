@@ -47,7 +47,7 @@
                   <Component id="Recommencer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Quitter" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +64,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Malheureusement, la partie est termin&#xe9;e.  Vous n&apos;avez pas r&#xe9;ussi &#xe0; atteindre l&apos;objectif.&#xa;&#xa;Ne vous d&#xe9;couragez pas et tentez &#xe0; nouveau !&#xa;Vous finirez par ma&#xee;triser les subtilit&#xe9;s de Light Off."/>
+            <Property name="text" type="java.lang.String" value="Malheureusement, la partie est termin&#xe9;e.  Vous n&apos;avez pas r&#xe9;ussi &#xe0; atteindre l&apos;objectif.&#xa;&#xa;Ne vous d&#xe9;couragez pas et tentez &#xe0; nouveau !&#xa;Vous finirez par ma&#xee;triser les subtilit&#xe9;s de La chevauch&#xe9;e Fantastique. "/>
           </Properties>
         </Component>
       </SubComponents>

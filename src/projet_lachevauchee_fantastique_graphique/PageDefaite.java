@@ -38,7 +38,7 @@ public class PageDefaite extends javax.swing.JFrame {
 
         Defaite.setColumns(20);
         Defaite.setRows(5);
-        Defaite.setText("Malheureusement, la partie est terminée.  Vous n'avez pas réussi à atteindre l'objectif.\n\nNe vous découragez pas et tentez à nouveau !\nVous finirez par maîtriser les subtilités de Light Off.");
+        Defaite.setText("Malheureusement, la partie est terminée.  Vous n'avez pas réussi à atteindre l'objectif.\n\nNe vous découragez pas et tentez à nouveau !\nVous finirez par maîtriser les subtilités de La chevauchée Fantastique. ");
         jScrollPane1.setViewportView(Defaite);
 
         Recommencer.setText("Recommencer");
@@ -79,7 +79,7 @@ public class PageDefaite extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Recommencer)
                     .addComponent(Quitter))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();

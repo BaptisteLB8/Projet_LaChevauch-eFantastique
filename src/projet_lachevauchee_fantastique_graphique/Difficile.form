@@ -80,7 +80,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Le mode Difficile:&#xa;&#xa;Grille: 7x7 &#xa;Nombres de coups: 15&#xa;Temps: 40s&#xa;"/>
+            <Property name="text" type="java.lang.String" value="Le mode Difficile:&#xa;&#xa;&#xa;Nombres de cases: 11&#xa;Temps: 90s&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

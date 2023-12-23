@@ -40,7 +40,7 @@ public class PageVictoire extends javax.swing.JFrame {
 
         Victoire.setColumns(20);
         Victoire.setRows(5);
-        Victoire.setText("Félicitations ! \n\nVous avez brillamment réussi et remporté la partie avec succès. \nUn grand bravo pour votre habileté à résoudre les défis de Light Off !\"");
+        Victoire.setText("Félicitations ! \n\nVous avez brillamment réussi et remporté la partie avec succès. \nUn grand bravo pour votre habileté à résoudre les défis de \nLa chevauchée Fantastique !\"");
         jScrollPane1.setViewportView(Victoire);
 
         Recommencer.setText("Recommencer ");

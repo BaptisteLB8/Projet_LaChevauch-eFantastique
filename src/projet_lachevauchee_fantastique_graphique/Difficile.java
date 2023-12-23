@@ -51,7 +51,7 @@ public class Difficile extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Le mode Difficile:\n\nGrille: 7x7 \nNombres de coups: 15\nTemps: 40s\n");
+        jTextArea1.setText("Le mode Difficile:\n\n\nNombres de cases: 11\nTemps: 90s\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,7 +84,7 @@ public class Difficile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommencerActionPerformed
-        FenetrePrincipale f =new FenetrePrincipale(8,8,11,30);
+        FenetrePrincipale f =new FenetrePrincipale(8,8,11,90);
         f.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_CommencerActionPerformed

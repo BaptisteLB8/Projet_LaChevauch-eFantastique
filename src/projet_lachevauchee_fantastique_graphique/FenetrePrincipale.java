@@ -183,7 +183,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     private void RecommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecommencerActionPerformed
 PageDefaite f = new PageDefaite();
-f.setVisible(true);// TODO add your handling code here:
+f.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_RecommencerActionPerformed
 
     private void NiveauTermineActionPerformed(java.awt.event.ActionEvent evt){

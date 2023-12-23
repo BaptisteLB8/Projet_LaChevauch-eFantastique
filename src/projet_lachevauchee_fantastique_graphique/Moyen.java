@@ -5,21 +5,18 @@
 package projet_lachevauchee_fantastique_graphique;
 
 import projet_lachevauchee_fantastique_graphique.FenetrePrincipale;
-import projet_lachevauchee_fantastique.GrilleDeJeu;
 
 /**
  *
  * @author bapti
  */
 public class Moyen extends javax.swing.JFrame {
-    
 
     /**
      * Creates new form Moyen
      */
     public Moyen() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -40,7 +37,7 @@ public class Moyen extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Le mode Moyen:\n\nGrille: 5x5 \nNombres de coups: 25\nTemps: 60s\n");
+        jTextArea1.setText("Le mode Moyen:\n\nNombres de cases : 8\nTemps: 100s\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         Commencer.setText("Commencer");
@@ -87,7 +84,7 @@ public class Moyen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommencerActionPerformed
-        FenetrePrincipale f =new FenetrePrincipale(8,8,8,30);
+        FenetrePrincipale f =new FenetrePrincipale(8,8,8,100);
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CommencerActionPerformed
