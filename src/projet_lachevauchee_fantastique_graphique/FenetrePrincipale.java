@@ -136,8 +136,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         Regle = new javax.swing.JButton();
         PanneauGrille = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Recommencer = new javax.swing.JButton();
+        NiveauTermine = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 102));
@@ -154,16 +154,23 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setPreferredSize(new java.awt.Dimension(360, 360));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
-        jButton1.setText("Quitter le jeu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Recommencer.setText("Recommencer");
+        Recommencer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RecommencerActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, -1, -1));
+        getContentPane().add(Recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
 
-        jButton2.setText("Recommencer");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, -1, -1));
+        NiveauTermine.setText("Niveau Terminé");
+        NiveauTermine.setActionCommand("Recommencer");
+        NiveauTermine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NiveauTermineActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NiveauTermine, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, -1));
+        NiveauTermine.getAccessibleContext().setAccessibleName("Recommencer");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,17 +181,23 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         ;
     }//GEN-LAST:event_RegleActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RecommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecommencerActionPerformed
+PageDefaite f = new PageDefaite();
+f.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_RecommencerActionPerformed
 
+    private void NiveauTermineActionPerformed(java.awt.event.ActionEvent evt){
+    if (grille.cellulesToutesEteintes()){
+        PageVictoire f = new PageVictoire();
+        f.setVisible(true);
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton NiveauTermine;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton Recommencer;
     private javax.swing.JButton Regle;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 
 }
